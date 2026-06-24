@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Leave Requests</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>LMS HR</h2>
+
+        <ul>
+
+            <li>
+                <a href="employee-dashboard.html">Dashboard</a>
+            </li>
+
+            <li>
+                <a href="approve-accounts.html">Approve Accounts</a>
+            </li>
+
+            <li class="active">
+                Review Leaves
+            </li>
+
+            <li>
+                Reports
+            </li>
+
+            <li>
+                <a href="hr-login.html">Logout</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="main">
+
+        <header>
+
+            <h1>Review Leave Requests</h1>
+
+            <p>
+                Review employee leave applications and update their status.
+            </p>
+
+        </header>
+
+        <!-- Summary Cards -->
+
+        <div class="cards">
+
+            <div class="card">
+                <h2>18</h2>
+                <p>Total Requests</p>
+            </div>
+
+            <div class="card">
+                <h2>5</h2>
+                <p>Pending</p>
+            </div>
+
+            <div class="card">
+                <h2>10</h2>
+                <p>Approved</p>
+            </div>
+
+            <div class="card">
+                <h2>3</h2>
+                <p>Rejected</p>
+            </div>
+
+        </div>
+
+        <!-- Search -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                placeholder="Search employee or leave type..."
+            >
+
+        </div>
+
+        <!-- Leave Table -->
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Employee</th>
+                        <th>Leave Type</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Reason</th>
+                        <th>Status</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>John Smith</td>
+
+                        <td>Annual Leave</td>
+
+                        <td>15/06/2026</td>
+
+                        <td>20/06/2026</td>
+
+                        <td>Family Vacation</td>
+
+                        <td>
+
+                            <span class="pending">
+
+                                Pending
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <button class="approve-btn">
+
+                                Approve
+
+                            </button>
+
+                            <button class="reject-btn">
+
+                                Reject
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Sarah Williams</td>
+
+                        <td>Sick Leave</td>
+
+                        <td>21/06/2026</td>
+
+                        <td>23/06/2026</td>
+
+                        <td>Medical Recovery</td>
+
+                        <td>
+
+                            <span class="approved">
+
+                                Approved
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <button disabled>
+
+                                Completed
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Michael Brown</td>
+
+                        <td>Family Responsibility</td>
+
+                        <td>28/06/2026</td>
+
+                        <td>29/06/2026</td>
+
+                        <td>Family Emergency</td>
+
+                        <td>
+
+                            <span class="rejected">
+
+                                Rejected
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <button disabled>
+
+                                Closed
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

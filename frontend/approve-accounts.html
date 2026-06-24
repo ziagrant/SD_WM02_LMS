@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Approve Employee Accounts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <div class="sidebar">
+            <h2>LMS HR</h2>
+        <ul>
+            <li><a href="review-leaves.html">Dashboard</a></li>
+            <li class="active">Approve Accounts</li>
+            <li><a href="review-leaves.html">Review Leaves</a></li>
+            <li>Reports</li>
+            <li id="logoutBtn"><a href="#">Logout</a></li>
+            </ul>
+    </div>
+
+    <div class="main">
+
+            <header>
+            <h1>Approve Employee Accounts</h1>
+                    <p>Review new employee registrations before granting access.</p>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="searchEmployee" placeholder="Search employee...">
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h2 id="totalEmployees"></h2>
+                <p>Total Employees</p>
+            </div>
+            <div class="card">
+                <h2 id="pendingEmployees"></h2>
+                <p>Pending Approval</p>
+            </div>
+            <div class="card">
+                <h2 id="approvedEmployees"></h2>
+                    <p>Approved</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard | Leave Management System</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>LMS</h2>
+
+        <ul>
+
+            <li class="active">
+                <a href="#dashboard">Dashboard</a>
+            </li>
+
+            <li>
+                <a href="#apply-leave">Apply Leave</a>
+            </li>
+
+            <li>
+                <a href="#leave-history">Leave History</a>
+            </li>
+
+            <li>
+                <a href="#profile">Profile</a>
+            </li>
+
+            <li id="logoutBtn">
+                <a href="#">Logout</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main -->
+
+    <div class="main">
+
+        <header id="dashboard" class="dashboard-hero">
+
+            <div class="dashboard-hero-content">
+                <span class="hero-tag">Employee Dashboard</span>
+                <h1>Welcome back, <span id="empName"></span></h1>
+                <p>Manage leave requests, track approvals, and keep your profile up to date with one smooth dashboard experience.</p>
+            </div>
+
+            <div class="hero-stats">
+                <div class="hero-card">
+                    <span>Leave Balance</span>
+                    <strong id="leaveBalance"></strong>
+                </div>
+                <div class="hero-card">
+                    <span>Pending Requests</span>
+                    <strong id="pendingCount"></strong>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- Cards -->
+
+        <div class="cards">
+
+            <div class="card">
+                <h2 id="statTotal"></h2>
+                <p>Total Leave Days</p>
+            </div>
+
+            <div class="card">
+                <h2 id="statRemaining"></h2>
+                <p>Remaining</p>
+            </div>
+
+            <div class="card">
+                <h2 id="statApproved"></h2>
+                <p>Approved</p>
+            </div>
+
+            <div class="card">
+                <h2 id="statPending"></h2>
+                <p>Pending</p>
+            </div>
+
+        </div>
+
+        <!-- Leave Form -->
+
+        <section id="apply-leave" class="form-section">
+
+            <h2>Submit Leave Request</h2>
+
+            <div id="leaveMsg"></div>
+
+            <form id="leaveForm">
+
+                <label>Leave Type</label>
+                <select id="leaveType">
+                    <option>Annual Leave</option>
+                    <option>Sick Leave</option>
+                    <option>Family Responsibility</option>
+                    <option>Maternity Leave</option>
+                </select>
+
+                <label>Start Date</label>
+                <input id="startDate" type="date">
+
+                <label>End Date</label>
+                <input id="endDate" type="date">
+
+                <label>Reason</label>
+                <textarea id="leaveReason" rows="5"></textarea>
+
+                <button type="submit">Submit Request</button>
+
+            </form>
+
+        </section>
+
+        <!-- Table -->
+
+        <section id="leave-history" class="history">
+
+            <h2>Recent Leave Requests</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="leaveHistoryBody">
+                </tbody>
+            </table>
+
+        </section>
+
+        <section id="profile" class="profile-section">
+
+            <h2>Profile Overview</h2>
+
+            <p>View and update your employee details, leave allowance, and contact information in one place.</p>
+
+            <div class="profile-grid">
+                <div class="profile-item">
+                    <strong>Name</strong>
+                    <span id="profileName"></span>
+                </div>
+                <div class="profile-item">
+                    <strong>Employee ID</strong>
+                    <span id="profileEmpNumber"></span>
+                </div>
+                <div class="profile-item">
+                    <strong>Department</strong>
+                    <span id="profileDept"></span>
+                </div>
+                <div class="profile-item">
+                    <strong>Email</strong>
+                    <span id="profileEmail"></span>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

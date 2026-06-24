@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Login | Leave Management System</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:#f3f4f8;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+            width:900px;
+            height:520px;
+            background:white;
+            display:flex;
+            box-shadow:0 10px 30px rgba(0,0,0,0.1);
+            border-radius:8px;
+            overflow:hidden;
+        }
+
+        .left{
+            width:40%;
+            background:#33003f;
+            color:white;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            padding:40px;
+        }
+
+        .left h2{
+            font-size:24px;
+            margin-bottom:20px;
+            text-align:center;
+        }
+
+        .left p{
+            text-align:center;
+            font-size:14px;
+            color:#ddd;
+        }
+
+        .right{
+            width:60%;
+            padding:60px;
+        }
+
+        .welcome{
+            color:#555;
+            font-size:12px;
+            letter-spacing:2px;
+            margin-bottom:8px;
+        }
+
+        h1{
+            font-size:30px;
+            margin-bottom:10px;
+        }
+
+        .subtitle{
+            color:#777;
+            margin-bottom:35px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:5px;
+            font-size:14px;
+            color:#444;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            margin-bottom:20px;
+        }
+
+        button{
+            width:100%;
+            padding:13px;
+            background:#8fd5ff;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            font-weight:600;
+            transition:.3s;
+        }
+
+        button:hover{
+            background:#64c3ff;
+        }
+
+        .bottom{
+            display:flex;
+            justify-content:space-between;
+            margin-top:20px;
+            font-size:13px;
+        }
+
+        .bottom a{
+            text-decoration:none;
+            color:#666;
+        }
+
+        .bottom a:hover{
+            color:#33003f;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left">
+
+        <h2>LMS-CHACKS CREATIVE TECH</h2>
+
+        <p>
+            Create your account,
+            register now.
+        </p>
+
+    </div>
+
+    <div class="right">
+
+        <div class="welcome">Welcome back</div>
+
+        <h1>Employee login</h1>
+
+        <p class="subtitle">
+            Sign in to your account
+        </p>
+
+        <div id="loginMsg"></div>
+
+        <form id="employeeLoginForm">
+
+            <label>Email address</label>
+            <input id="loginEmail" type="email" placeholder="Enter email">
+
+            <label>Password</label>
+            <input id="loginPassword" type="password" placeholder="Enter password">
+
+            <button type="submit">
+                Sign in →
+            </button>
+
+        </form>
+
+        <div class="bottom">
+
+            <a href="signup.html">
+                New account? Create account
+            </a>
+
+            <a href="hr-login.html">
+                HR Manager Login
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

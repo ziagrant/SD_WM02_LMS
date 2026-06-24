@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Manager Login</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+        body{ background:#f4f6f9; display:flex; justify-content:center; align-items:center; height:100vh; }
+        .container{ width:950px; height:550px; background:#fff; display:flex; border-radius:10px; overflow:hidden; box-shadow:0 12px 30px rgba(0,0,0,0.12); }
+        .left{ width:40%; background:#2d014d; color:white; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:40px; text-align:center; }
+        .left h1{ font-size:30px; margin-bottom:15px; }
+        .left p{ color:#dddddd; line-height:28px; }
+        .right{ width:60%; padding:60px; }
+        .title{ font-size:32px; font-weight:700; color:#222; margin-bottom:8px; }
+        .subtitle{ color:gray; margin-bottom:35px; }
+        label{ display:block; margin-bottom:8px; font-size:14px; color:#444; }
+        input{ width:100%; padding:13px; margin-bottom:20px; border:1px solid #ccc; border-radius:6px; outline:none; }
+        input:focus{ border-color:#59c3ff; }
+        button{ width:100%; padding:14px; background:#8fd5ff; border:none; border-radius:6px; cursor:pointer; font-size:16px; font-weight:600; transition:0.3s; }
+        button:hover{ background:#69c6ff; }
+        .links{ margin-top:25px; display:flex; justify-content:space-between; font-size:14px; }
+        .links a{ text-decoration:none; color:#2d014d; font-weight:500; }
+        .links a:hover{ text-decoration:underline; }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left">
+        <h1>HR Portal</h1>
+        <p>Secure login for Human Resource Managers. Manage employee registrations, approve leave requests, and monitor leave records.</p>
+    </div>
+
+    <div class="right">
+
+        <div class="title">HR Manager Login</div>
+        <div class="subtitle">Sign in with your administrator account.</div>
+
+        <div id="hrLoginMsg"></div>
+
+        <form id="hrLoginForm">
+
+            <label>Email Address</label>
+            <input id="hrEmail" type="email" placeholder="Enter HR email">
+
+            <label>Password</label>
+            <input id="hrPassword" type="password" placeholder="Enter password">
+
+            <button type="submit">Login</button>
+
+        </form>
+
+        <div class="links">
+            <a href="employee-login.html">Employee Login</a>
+            <a href="#">Forgot Password?</a>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
