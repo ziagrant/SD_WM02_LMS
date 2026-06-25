@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <div class="sidebar">
+        <h2>LMS HR</h2>
+        <ul>
+            <li><a href="review-leaves.html">Dashboard</a></li>
+            <li><a href="approve-accounts.html">Approve Accounts</a></li>
+            <li><a href="review-leaves.html">Review Leaves</a></li>
+            <li class="active">Reports</li>
+            <li id="logoutBtn"><a href="#">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main">
+
+        <header>
+            <h1>Reports</h1>
+            <p>Overview of leave statistics across all employees.</p>
+        </header>
+
+        <!-- Summary Cards -->
+        <div class="cards">
+            <div class="card">
+                <h2 id="reportTotal">—</h2>
+                <p>Total Requests</p>
+            </div>
+            <div class="card">
+                <h2 id="reportPending">—</h2>
+                <p>Pending</p>
+            </div>
+            <div class="card">
+                <h2 id="reportApproved">—</h2>
+                <p>Approved</p>
+            </div>
+            <div class="card">
+                <h2 id="reportRejected">—</h2>
+                <p>Rejected</p>
+            </div>
+        </div>
+
+        <!-- Leave Type Breakdown -->
+        <div class="table-container" style="margin-bottom:30px;">
+            <h2 style="margin-bottom:20px;color:#33003f;">Leave Type Breakdown</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Leave Type</th>
+                        <th>Total Requests</th>
+                        <th>Approved</th>
+                        <th>Pending</th>
+                        <th>Rejected</th>
+                    </tr>
+                </thead>
+                <tbody id="leaveTypeBody">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Department Breakdown -->
+        <div class="table-container" style="margin-bottom:30px;">
+            <h2 style="margin-bottom:20px;color:#33003f;">Leave by Department</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Department</th>
+                        <th>Total Requests</th>
+                        <th>Approved</th>
+                        <th>Pending</th>
+                        <th>Rejected</th>
+                    </tr>
+                </thead>
+                <tbody id="deptBody">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Employee Breakdown -->
+        <div class="table-container">
+            <h2 style="margin-bottom:20px;color:#33003f;">Leave per Employee</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Employee</th>
+                        <th>Department</th>
+                        <th>Total Requests</th>
+                        <th>Days Approved</th>
+                        <th>Pending</th>
+                    </tr>
+                </thead>
+                <tbody id="empReportBody">
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+const API = 'http://localhost:4000/api';
+
+function authHeaders() {
+    return {
+        'Content-Type': 'application/json',
+        'x-user-id': sessionStorage.getItem('userId') || ''
+    };
+}
+
+// Logout
+const logoutBtn = document.getElementById('logoutBtn');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        sessionStorage.clear();
+        await fetch(`${API}/auth/logout`, { method: 'POST', credentials: 'include' });
+        window.location.href = 'index.html';
+    });
+}
+
+async function loadReports() {
+    try {
+        const res = await fetch(`${API}/leaves`, {
+            credentials: 'include',
+            headers: authHeaders()
+        });
+
+        if (!res.ok) { window.location.href = 'hr-login.html'; return; }
+
+        const data = await res.json();
+        const leaves = Array.isArray(data) ? data : (data.leaves || []);
+
+        // ── Summary Cards ──
+        const total    = leaves.length;
+        const approved = leaves.filter(l => l.status === 'approved').length;
+        const pending  = leaves.filter(l => l.status === 'pending').length;
+        const rejected = leaves.filter(l => l.status === 'rejected').length;
+
+        document.getElementById('reportTotal').textContent    = total;
+        document.getElementById('reportApproved').textContent = approved;
+        document.getElementById('reportPending').textContent  = pending;
+        document.getElementById('reportRejected').textContent = rejected;
+
+        // ── Leave Type Breakdown ──
+        const types = {};
+        leaves.forEach(l => {
+            const t = l.leave_type || 'Unknown';
+            if (!types[t]) types[t] = { total: 0, approved: 0, pending: 0, rejected: 0 };
+            types[t].total++;
+            types[t][l.status]++;
+        });
+
+        const typeBody = document.getElementById('leaveTypeBody');
+        typeBody.innerHTML = Object.entries(types).map(([type, d]) => `
+            <tr>
+                <td>${type}</td>
+                <td>${d.total}</td>
+                <td class="approved">${d.approved}</td>
+                <td class="pending">${d.pending}</td>
+                <td class="rejected">${d.rejected}</td>
+            </tr>
+        `).join('') || '<tr><td colspan="5" style="text-align:center;color:#aaa;">No data yet.</td></tr>';
+
+        // ── Department Breakdown ──
+        const depts = {};
+        leaves.forEach(l => {
+            const d = l.department || 'Unknown';
+            if (!depts[d]) depts[d] = { total: 0, approved: 0, pending: 0, rejected: 0 };
+            depts[d].total++;
+            depts[d][l.status]++;
+        });
+
+        const deptBody = document.getElementById('deptBody');
+        deptBody.innerHTML = Object.entries(depts).map(([dept, d]) => `
+            <tr>
+                <td>${dept}</td>
+                <td>${d.total}</td>
+                <td class="approved">${d.approved}</td>
+                <td class="pending">${d.pending}</td>
+                <td class="rejected">${d.rejected}</td>
+            </tr>
+        `).join('') || '<tr><td colspan="5" style="text-align:center;color:#aaa;">No data yet.</td></tr>';
+
+        // ── Employee Breakdown ──
+        const emps = {};
+        leaves.forEach(l => {
+            const name = `${l.first_name} ${l.last_name}`;
+            if (!emps[name]) emps[name] = { dept: l.department, total: 0, daysApproved: 0, pending: 0 };
+            emps[name].total++;
+            if (l.status === 'approved') emps[name].daysApproved += l.days_requested || 0;
+            if (l.status === 'pending')  emps[name].pending++;
+        });
+
+        const empBody = document.getElementById('empReportBody');
+        empBody.innerHTML = Object.entries(emps).map(([name, d]) => `
+            <tr>
+                <td>${name}</td>
+                <td>${d.dept}</td>
+                <td>${d.total}</td>
+                <td class="approved">${d.daysApproved} days</td>
+                <td class="pending">${d.pending}</td>
+            </tr>
+        `).join('') || '<tr><td colspan="5" style="text-align:center;color:#aaa;">No data yet.</td></tr>';
+
+    } catch (err) {
+        console.error('Could not load reports', err);
+    }
+}
+
+loadReports();
+</script>
+
+</body>
+</html>

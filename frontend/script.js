@@ -419,6 +419,16 @@ async function loadLeaves() {
         set('approvedLeaves', leaves.filter(l => l.status === 'approved').length);
         set('rejectedLeaves', leaves.filter(l => l.status === 'rejected').length);
 
+        const searchInput = document.getElementById('searchLeave');
+        if (searchInput) {
+            searchInput.addEventListener('input', () => {
+                const q = searchInput.value.toLowerCase();
+                tbody.querySelectorAll('tr').forEach(row => {
+                    row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+                });
+            });
+        }
+
     } catch (err) {
         tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:red;">Error loading leave requests.</td></tr>';
     }
