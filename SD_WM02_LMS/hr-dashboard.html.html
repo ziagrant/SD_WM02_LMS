@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Dashboard | Leave Management System</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar (HR only - links to HR pages) -->
+    <div class="sidebar">
+
+        <h2>LMS HR</h2>
+
+        <ul>
+            <li class="active"><a href="hr-dashboard.html">Dashboard</a></li>
+            <li><a href="approve-accounts.html">Approve Accounts</a></li>
+            <li><a href="review-leaves.html">Review Leaves</a></li>
+            <li><a href="reports.html">Reports</a></li>
+            <li><a href="hr-login.html">Logout</a></li>
+        </ul>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+
+        <header>
+            <h1>HR Manager Dashboard</h1>
+            <p>Overview of employee accounts, leave requests, and system activity.</p>
+        </header>
+
+        <!-- Summary Cards -->
+        <div class="cards">
+
+            <div class="card">
+                <h2 id="hrTotalEmployees">—</h2>
+                <p>Total Employees</p>
+            </div>
+
+            <div class="card">
+                <h2 id="hrPendingAccounts">—</h2>
+                <p>Pending Accounts</p>
+            </div>
+
+            <div class="card">
+                <h2 id="hrPendingLeaves">—</h2>
+                <p>Pending Leave Requests</p>
+            </div>
+
+            <div class="card">
+                <h2 id="hrApprovedLeaves">—</h2>
+                <p>Approved Leaves</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Script -->
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,686 @@
+/* ============================================================
+   STYLE.CSS — LMS Chacks Creative Technology
+   Covers: Auth pages, Dashboard layout, Sidebar, Cards,
+           Forms, Tables, Status badges, Buttons, Responsive
+   ============================================================ */
+
+
+/* ==========================
+   GLOBAL RESET & BASE
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f4f6fa;
+    color: #333;
+}
+
+
+/* ==========================
+   AUTH PAGES
+   (Login & Signup screens)
+========================== */
+
+/* Full-screen centering for auth pages */
+body.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f3f4f8;
+}
+
+/* Auth card container */
+.auth-container {
+    width: 950px;
+    background: #fff;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Wider variant for signup which has more fields */
+.auth-container--wide {
+    width: 1000px;
+}
+
+/* Left purple branding panel */
+.auth-left {
+    width: 40%;
+    background: #2d014d;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.auth-left h1,
+.auth-left h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.auth-left p {
+    color: #dddddd;
+    line-height: 28px;
+    font-size: 14px;
+}
+
+/* Right form panel */
+.auth-right {
+    width: 60%;
+    padding: 60px;
+}
+
+/* Page title and subtitle */
+.auth-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.auth-subtitle {
+    color: gray;
+    margin-bottom: 35px;
+}
+
+/* Small "WELCOME BACK" tag above heading */
+.auth-welcome {
+    color: #555;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.auth-right h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+/* Auth forms — shared styles for login and signup */
+.auth-form label,
+.signup-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #444;
+}
+
+.auth-form input,
+.signup-form input {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+}
+
+.auth-form input:focus,
+.signup-form input:focus {
+    border-color: #59c3ff;
+}
+
+.auth-form button,
+.signup-form button {
+    width: 100%;
+    padding: 14px;
+    background: #8fd5ff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+    margin-top: 0;
+}
+
+.auth-form button:hover,
+.signup-form button:hover {
+    background: #69c6ff;
+}
+
+/* Bottom links row (e.g. Employee Login | Forgot Password) */
+.auth-links {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.auth-links a {
+    text-decoration: none;
+    color: #2d014d;
+    font-weight: 500;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+/* Footer link row on signup */
+.auth-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.auth-footer a {
+    color: #33003f;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Signup two-column row layout */
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #444;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #4ea8ff;
+}
+
+
+/* ==========================
+   DASHBOARD LAYOUT
+========================== */
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* ==========================
+   SIDEBAR
+========================== */
+
+.sidebar {
+    width: 260px;
+    background: #33003f;
+    color: white;
+    padding: 30px 20px;
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar li:hover,
+.sidebar .active {
+    background: #5c2672;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* ==========================
+   MAIN CONTENT AREA
+========================== */
+
+.main {
+    flex: 1;
+    padding: 35px;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 32px;
+    color: #222;
+}
+
+header p {
+    color: #777;
+    margin-top: 8px;
+}
+
+
+/* ==========================
+   DASHBOARD HERO BANNER
+========================== */
+
+.dashboard-hero {
+    background: linear-gradient(135deg, #33003f, #5c2672);
+    color: white;
+    padding: 35px;
+    border-radius: 14px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.hero-tag {
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.dashboard-hero h1 {
+    font-size: 28px;
+    color: white;
+}
+
+.dashboard-hero p {
+    color: #ddd;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 18px 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.hero-card span {
+    font-size: 12px;
+    opacity: 0.85;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.hero-card strong {
+    font-size: 22px;
+}
+
+
+/* ==========================
+   SUMMARY CARDS
+========================== */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.card h2 {
+    color: #33003f;
+    font-size: 32px;
+}
+
+.card p {
+    margin-top: 10px;
+    color: #666;
+}
+
+
+/* ==========================
+   LEAVE APPLICATION FORM
+========================== */
+
+.form-section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.form-section h2 {
+    margin-bottom: 20px;
+}
+
+/* Leave form field labels */
+.leave-form label,
+.report-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+/* Leave form inputs, selects, textareas */
+.leave-form__input,
+.leave-form__select,
+.leave-form__textarea,
+.report-form__input,
+.report-form__select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+}
+
+.leave-form__input:focus,
+.leave-form__select:focus,
+.leave-form__textarea:focus,
+.report-form__input:focus,
+.report-form__select:focus {
+    border-color: #76cfff;
+}
+
+/* Submit button inside leave and report forms */
+.leave-form__submit,
+.report-form__submit {
+    margin-top: 20px;
+    background: #8fd5ff;
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.leave-form__submit:hover,
+.report-form__submit:hover {
+    background: #69c5ff;
+}
+
+
+/* ==========================
+   SEARCH BOX
+========================== */
+
+.search-box {
+    margin-bottom: 25px;
+}
+
+.search-box input {
+    max-width: 350px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    width: 100%;
+}
+
+.search-box input:focus {
+    border-color: #76cfff;
+}
+
+
+/* ==========================
+   TABLES (shared base)
+========================== */
+
+.table-container {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+/* All tables share the same base styles via element selectors */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Table headers — purple background */
+.accounts-table__header,
+.leaves-table__header,
+.report-table__header,
+.leave-table__header {
+    background: #33003f;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+/* Table data cells */
+table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Hover effect on rows */
+table tr:hover {
+    background: #f8f8f8;
+}
+
+
+/* ==========================
+   LEAVE HISTORY TABLE
+   (Employee dashboard)
+========================== */
+
+.history {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.history h2 {
+    margin-bottom: 20px;
+}
+
+
+/* ==========================
+   PROFILE SECTION
+========================== */
+
+.profile-section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.profile-section h2 {
+    margin-bottom: 8px;
+}
+
+.profile-section p {
+    color: #777;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.profile-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.profile-item strong {
+    font-size: 13px;
+    color: #555;
+}
+
+.profile-item span {
+    font-size: 15px;
+    color: #222;
+    font-weight: 500;
+}
+
+
+/* ==========================
+   STATUS BADGES
+========================== */
+
+/* Green = approved */
+.approved {
+    color: green;
+    font-weight: bold;
+}
+
+/* Orange = pending */
+.pending {
+    color: orange;
+    font-weight: bold;
+}
+
+/* Red = rejected */
+.rejected {
+    color: red;
+    font-weight: bold;
+}
+
+
+/* ==========================
+   ACTION BUTTONS
+   (Approve / Reject in tables)
+========================== */
+
+button {
+    background: #8fd5ff;
+    color: black;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #69c5ff;
+}
+
+/* Green approve button */
+.approve-btn {
+    background: #28a745;
+    color: white;
+    margin-right: 5px;
+}
+
+.approve-btn:hover {
+    background: #218838;
+}
+
+/* Red reject button */
+.reject-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.reject-btn:hover {
+    background: #c82333;
+}
+
+
+/* ==========================
+   RESPONSIVE — Mobile/Tablet
+========================== */
+
+@media (max-width: 900px) {
+
+    /* Stack dashboard vertically on small screens */
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    /* Single column cards on mobile */
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stack auth container vertically */
+    .auth-container,
+    .auth-container--wide {
+        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+        border-radius: 0;
+    }
+
+    .auth-left,
+    .auth-right {
+        width: 100%;
+    }
+
+    /* Stack form row on mobile */
+    .form-row {
+        flex-direction: column;
+    }
+
+    /* Stack hero stats on mobile */
+    .hero-stats {
+        flex-direction: column;
+    }
+
+}

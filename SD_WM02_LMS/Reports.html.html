@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports | Leave Management System</title>
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar (HR only) -->
+    <div class="sidebar">
+
+        <h2>LMS HR</h2>
+
+        <ul>
+            <li><a href="hr-dashboard.html">Dashboard</a></li>
+            <li><a href="approve-accounts.html">Approve Accounts</a></li>
+            <li><a href="review-leaves.html">Review Leaves</a></li>
+            <li class="active">Reports</li>
+            <li><a href="hr-login.html">Logout</a></li>
+        </ul>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+
+        <header>
+            <h1>Reports</h1>
+            <p>View and export leave and employee summary reports.</p>
+        </header>
+
+        <!-- Report Summary Cards -->
+        <div class="cards">
+
+            <div class="card">
+                <h2 id="reportTotalLeaves">—</h2>
+                <p>Total Leave Requests</p>
+            </div>
+
+            <div class="card">
+                <h2 id="reportApproved">—</h2>
+                <p>Approved</p>
+            </div>
+
+            <div class="card">
+                <h2 id="reportRejected">—</h2>
+                <p>Rejected</p>
+            </div>
+
+            <div class="card">
+                <h2 id="reportPending">—</h2>
+                <p>Pending</p>
+            </div>
+
+        </div>
+
+        <!-- Report Actions -->
+        <div class="form-section">
+
+            <h2>Generate Report</h2>
+
+            <!-- Report filter form -->
+            <form class="report-form" id="reportForm">
+
+                <label for="reportType">Report Type</label>
+                <select id="reportType" name="reportType" class="report-form__select">
+                    <option value="all">All Leave Requests</option>
+                    <option value="approved">Approved Leaves Only</option>
+                    <option value="rejected">Rejected Leaves Only</option>
+                    <option value="pending">Pending Leaves Only</option>
+                </select>
+
+                <label for="reportMonth">Month</label>
+                <input type="month" id="reportMonth" name="reportMonth" class="report-form__input">
+
+                <button type="submit" class="report-form__submit">Generate Report</button>
+
+            </form>
+
+        </div>
+
+        <!-- Report Results Table -->
+        <div class="table-container">
+
+            <table class="report-table">
+
+                <thead class="report-table__head">
+                    <tr>
+                        <th class="report-table__header">Employee</th>
+                        <th class="report-table__header">Leave Type</th>
+                        <th class="report-table__header">Start Date</th>
+                        <th class="report-table__header">End Date</th>
+                        <th class="report-table__header">Status</th>
+                    </tr>
+                </thead>
+
+                <tbody class="report-table__body" id="reportTableBody">
+                    <!-- Populated dynamically by script.js -->
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Script -->
+<script src="script.js"></script>
+
+</body>
+</html>

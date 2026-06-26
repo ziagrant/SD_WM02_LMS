@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Manager Login</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="auth-page">
+
+<div class="auth-container">
+
+    <!-- Left Panel -->
+    <div class="auth-left">
+        <h1>HR Portal</h1>
+        <p>
+            Secure login for Human Resource Managers.
+            Manage employee registrations, approve leave requests,
+            and monitor leave records.
+        </p>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="auth-right">
+
+        <div class="auth-title">HR Manager Login</div>
+        <div class="auth-subtitle">Sign in with your administrator account.</div>
+
+        <!-- HR Login Form -->
+        <form class="auth-form" action="hr-dashboard.html">
+
+            <label for="hr-email">Email Address</label>
+            <input
+                type="email"
+                id="hr-email"
+                name="email"
+                placeholder="Enter HR email"
+            >
+
+            <label for="hr-password">Password</label>
+            <input
+                type="password"
+                id="hr-password"
+                name="password"
+                placeholder="Enter password"
+            >
+
+            <button type="submit">Login</button>
+
+        </form>
+
+        <div class="auth-links">
+            <a href="employee-login.html">Employee Login</a>
+            <a href="#">Forgot Password?</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
