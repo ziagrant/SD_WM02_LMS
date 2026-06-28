@@ -1,0 +1,11 @@
+# ─── Server ───────────────────────────────────────────────────────────────────
+PORT=4000
+NODE_ENV=development
+
+DB_HOST=localhost
+DB_USER=
+DB_PASSWORD=
+DB_NAME=
+DB_PORT=
+
+SESSION_SECRET=change_this_to_a_long_random_string_before_deployment
