@@ -107,3 +107,4 @@ router.get('/me', isLoggedIn, (req, res) => {
 });
 
 module.exports = router;
+//handles all user authentication routes including registration, login, logout, and fetching the current logged-in user's information. It uses bcrypt for password hashing and session management for maintaining user state.

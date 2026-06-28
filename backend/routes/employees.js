@@ -3,7 +3,6 @@ const router = express.Router();
 const db = require('../db');
 const { isLoggedIn, isHR } = require('../middleware/auth');
 
-// ─── GET /api/employees ───────────────────────────────────────────────────────
 // Used by approve-accounts.html
 // Returns all employees. Optionally filter by status: ?status=pending
 // HR only.
@@ -32,10 +31,7 @@ router.get('/', isLoggedIn, isHR, async (req, res) => {
   }
 });
 
-// ─── PATCH /api/employees/:id/status ─────────────────────────────────────────
-// Used by the Approve / Reject buttons on approve-accounts.html
-// Body: { status: 'approved' | 'rejected' }
-// HR only.
+
 
 router.patch('/:id/status', isLoggedIn, isHR, async (req, res) => {
   const { id } = req.params;
@@ -63,9 +59,6 @@ router.patch('/:id/status', isLoggedIn, isHR, async (req, res) => {
   }
 });
 
-// ─── GET /api/employees/stats ─────────────────────────────────────────────────
-// Provides the summary card counts shown on approve-accounts.html
-// HR only.
 
 router.get('/stats', isLoggedIn, isHR, async (req, res) => {
   try {
