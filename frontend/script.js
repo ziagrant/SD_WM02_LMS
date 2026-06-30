@@ -126,7 +126,7 @@ if (employeeLoginForm) {
     });
 }
 
-// ─── HR LOGIN ──────────────────────────────────────────────────────────────────
+// ─── HR LOGIN ───────────────────
 
 const hrLoginForm = document.getElementById('hrLoginForm');
 if (hrLoginForm) {
